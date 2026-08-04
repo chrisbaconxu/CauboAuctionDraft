@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auction Draft Ledger</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -64,7 +65,8 @@ tbody td{padding:7px 12px;border-bottom:1px solid var(--border-soft);color:var(-
 tbody tr:hover{background:var(--bg-2);}
 .pos-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;}
 .price-cell{color:var(--gold);font-weight:600;}
-.table-scroll{max-height:640px;overflow-y:auto;border-radius:8px;}
+.table-scroll{max-height:640px;overflow-y:auto;overflow-x:auto;border-radius:8px;-webkit-overflow-scrolling:touch;}
+.table-scroll table{min-width:640px;}
 .pager{display:flex;justify-content:center;gap:10px;align-items:center;margin-top:12px;font-size:12px;color:var(--text-2);}
 .pager button{background:var(--bg-2);border:1px solid var(--border);color:var(--text-1);border-radius:5px;padding:5px 12px;cursor:pointer;}
 .pager button:disabled{opacity:.4;cursor:default;}
@@ -86,6 +88,34 @@ tbody tr:hover{background:var(--bg-2);}
 .pos-block tbody tr:last-child td{border-bottom:none;}
 .pos-block tbody tr:hover{background:var(--bg-3);}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+
+@media(max-width:640px){
+  .wrap{padding:16px 12px 40px;}
+  .masthead{flex-direction:column;align-items:flex-start;gap:10px;padding-bottom:12px;}
+  .masthead h1{font-size:22px;}
+  .stat-row{width:100%;gap:8px;}
+  .stat-chip{flex:1 1 calc(33% - 8px);min-width:0;padding:7px 8px;text-align:left;}
+  .stat-chip .n{font-size:15px;}
+  .tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .tab-btn{padding:10px 14px;font-size:13px;flex:0 0 auto;}
+  .filters{padding:12px;gap:12px;}
+  .f-group{width:100%;}
+  .chip-row{gap:8px;}
+  .chip{padding:8px 12px;font-size:13px;min-height:18px;}
+  select,input[type=text],input[type=number]{width:100%;padding:9px 10px;font-size:14px;}
+  .range-pair{width:100%;}
+  .range-pair input{flex:1;width:auto;}
+  .clear-btn{width:100%;padding:10px;}
+  thead th{padding:8px 10px;font-size:10px;}
+  tbody td{padding:8px 10px;font-size:12.5px;}
+  .chart-card{padding:14px;}
+  .chart-card h3{font-size:14px;}
+  .breakdown-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+  .legend-row{gap:10px;font-size:11px;}
+  #curveChart, #stackChart, #scatterChart{max-height:260px!important;}
+  .chart-wrap:has(#curveChart), .chart-wrap:has(#stackChart), .chart-wrap:has(#scatterChart){height:260px!important;}
+  .chart-wrap:has(#mixChart){height:520px!important;}
+}
 </style>
 </head>
 <body>
